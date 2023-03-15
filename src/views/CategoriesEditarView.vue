@@ -1,7 +1,7 @@
 <template>
     <div style="text-align: left;">
         Editar persona
-        <form @submit.prevent="editar()">
+        <form @submit.prevent="editar2()">
             <div>
                 <input type="text" v-model="payload.name" placeholder="name">
             </div>
@@ -10,12 +10,10 @@
                 <button>Editar</button>
             </div>
         </form>
-        <FormularioNuevaCategorie v-if="isload" :inpayload="payload" @on-payload="editar($event)">
-        </FormularioNuevaCategorie>
+
     </div>
 </template>
 <script>
-import FormularioNuevaCategorie from '@/components/FormularioNuevaCategorie.vue';
 export default {
     name: 'PersonaEditarView',
     props: [],
@@ -40,11 +38,14 @@ export default {
                 .then((response) => { this.payload = response.data, this.isload = true; })
                 .catch((err) => { console.log(err) })
         },
-        editar(payload) {
-            this.axios.patch("http://localhost:5000/categories/" + this.categoriesId, payload)
+
+        editar2() {
+            this.axios.patch("http://localhost:5000/categories/" + this.categoriesId, this.payload)
                 .then((response) => { console.log(response) })
                 .catch((err) => { console.log(err) })
         }
+
+
     },
     computed: {
     },
@@ -53,7 +54,7 @@ export default {
             this.getPersona()
     },
     components: {
-        FormularioNuevaCategorie
+
     }
 }
 </script>
