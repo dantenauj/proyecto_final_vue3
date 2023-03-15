@@ -1,15 +1,15 @@
 <template>
     <div>
         <h2>New Product</h2>
-        <form @submit.prevent="createProduct">
+        <form @submit.prevent="crearProduct()">
 
             <label>
                 Name:
-                <input type="text" v-model="name" required>
+                <input type="text" v-model="payload.name" placeholder="Name">
             </label>
             <label>
                 Price:
-                <input type="number" v-model.number="price" step="0.01" min="0" required>
+                <input type="text" v-model="payload.price" placeholder="price" step="0.01" min="0" required>
             </label>
             <label>
                 Category:
@@ -19,8 +19,6 @@
                 </select>
             </label>
             <button type="submit">Create </button>
-
-
         </form>
     </div>
 </template>
@@ -41,7 +39,7 @@ export default {
         }
     },
     methods: {
-        crearCategorie() {
+        crearProduct() {
             this.$emit('on-payload', this.payload);
         },
 

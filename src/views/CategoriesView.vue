@@ -1,8 +1,10 @@
 <template>
   <div style="text-align: left">
-    <h1>listado de Categorias</h1>
+
     <FormularioNuevaCategorie :inpayload="payload" @on-payload="crearCategorie($event)"></FormularioNuevaCategorie>
-  </div>
+  </div><br><br>
+
+  <h1>listado de Categorias</h1>
   <table class="table">
     <thead>
       <tr>

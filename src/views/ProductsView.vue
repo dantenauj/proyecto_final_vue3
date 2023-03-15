@@ -43,8 +43,6 @@ export default {
             }
         }
     },
-
-
     methods: {
         getProducts() {
             this.axios.get('http://localhost:5000/products')
@@ -60,7 +58,7 @@ export default {
             this.axios.post("http://localhost:5000/products", payload)
 
                 .then((response) => {
-                    this.categories.push(response.data);
+                    this.products.push(response.data);
                 })
                 .catch((err) => { console.log(err) })
             console.log(this.payload);
