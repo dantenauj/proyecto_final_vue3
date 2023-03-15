@@ -5,6 +5,7 @@
             <div>
                 <input type="text" v-model="payload.name" placeholder="name">
             </div>
+
             <div>
                 <button>Editar</button>
             </div>
@@ -16,7 +17,7 @@
 <script>
 import FormularioNuevaCategorie from '@/components/FormularioNuevaCategorie.vue';
 export default {
-    name: 'CategoriesEditarView',
+    name: 'PersonaEditarView',
     props: [],
     emits: [],
     data() {

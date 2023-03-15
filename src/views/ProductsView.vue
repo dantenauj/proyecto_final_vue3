@@ -1,4 +1,14 @@
 <template>
+    <div>
+        <input v-model="searchQuery" placeholder="Search for a product">
+        <input v-model.number="priceFilter" placeholder="Price filter">
+        <ul>
+            <li v-for="product in filteredProducts" :key="product.id">
+                {{ product.name }} - {{ product.price }}
+            </li>
+        </ul>
+    </div>
+
     <div style="text-align: left">
         <h1>listado de Productos </h1>
         <FormularioNuevaProduct :inpayload="payload" @on-payload="crearProduct($event)"></FormularioNuevaProduct>
@@ -20,7 +30,6 @@
                 <td>
                     <button type="button" class="btn btn-primary" @click="editar(value)">Editar</button>
                     <button type="button" class="btn btn-danger" @click="eliminar(value)">Eliminar</button>
-
                 </td>
             </tr>
         </tbody>
@@ -40,7 +49,9 @@ export default {
                 name: "",
                 price: 0,
                 categoryId: 1
-            }
+            },
+            searchQuery: "",
+            priceFilter: 0
         }
     },
     methods: {
@@ -73,8 +84,17 @@ export default {
                 .then((response) => { console.log(response); this.getProducts(); })
                 .catch((err) => { console.log(err) })
         }
+
     },
-    computed: {},
+    computed: {
+
+        filteredProducts() {
+            return this.products.filter(product =>
+                product.name.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
+                product.price > this.priceFilter
+            );
+        }
+    },
     mounted() {
         this.getProducts();
 
