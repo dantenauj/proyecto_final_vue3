@@ -36,10 +36,8 @@ export default {
                 name: "",
                 price: "",
                 categoryId: "",
-
-
-                categories_combo: [],
-            }
+            },
+            categories_combo: [],
         }
     },
     methods: {
