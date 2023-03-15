@@ -1,12 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
- 
-
   {
     path: '/categories',
     name: 'categories',
     component: () => import(/* webpackChunkName: "about" */ '../views/CategoriesView.vue')
+  },
+  {
+    path: '/categories/:id/editar',
+    name: 'categories_editar',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CategoriesEditarView.vue')
+   },
+    {
+    path: '/products',
+    name: 'products',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ProductsView.vue')
   }
 ]
 

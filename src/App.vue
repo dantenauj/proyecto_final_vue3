@@ -1,7 +1,11 @@
 <template>
   <nav>
 
-    <router-link to="/categories">Categories</router-link>
+    <router-link to="/categories">Categorias</router-link>
+
+
+    <router-link to="/products">||||Productos</router-link>
+
 
   </nav>
   <router-view />

@@ -58,6 +58,11 @@ export default {
         .catch((err) => { console.log(err) })
       console.log(this.payload);
     },
+    editar(item) {
+      this.$router.push('/categories/' + item.id + '/editar');
+      console.log(item);
+    },
+
     eliminar(item) {
       this.axios.delete("http://localhost:5000/categories/" + item.id)
         .then((response) => { console.log(response); this.getCategories(); })
